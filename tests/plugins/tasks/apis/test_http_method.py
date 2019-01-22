@@ -7,11 +7,10 @@ import pytest
 from requests.exceptions import HTTPError
 
 
-BASE_URL = "http://localhost:65080"
+BASE_URL = "http://httpbin"
 
 
 class Test(object):
-
     def test_simple_get_text(self):
         url = "{}/encoding/utf8".format(BASE_URL)
         result = http_method(method="get", url=url)

@@ -3,7 +3,7 @@
 
 Nornir
 =======
-Nornir is a pure Python automation framework intented to be used directly from Python. While most automation frameworks use their own DSL which you use to describe what you want to have done, Nornir lets you control everything from Python.
+Nornir is a pure Python automation framework intented to be used directly from Python. While most automation frameworks use their own Domain Specific Language (DSL) which you use to describe what you want to have done, Nornir lets you control everything from Python.
 
 One of the benefits we want to highlight with this approach is the ease of troubleshooting, if something goes wrong you can just use your existing debug tools directly from Python (just add a line of `import pdb` & `pdb.set_trace()` and you're good to go). Doing the same using a DSL can be quite time consuming.
 
@@ -13,7 +13,7 @@ What Nornir brings to the table is that it takes care of dealing with your inven
 Install
 =======
 
-While Nornir still supports Python 2.7 the recommended version is 3.6. Install it with pip.
+Please note that Nornir requires Python 3.6 or higher. Install Nornir with pip.
 
 ```
 pip install nornir

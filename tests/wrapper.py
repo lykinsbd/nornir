@@ -1,10 +1,7 @@
 import sys
-from decorator import decorator
+from io import StringIO
 
-if sys.version_info.major == 2:
-    from StringIO import StringIO
-else:
-    from io import StringIO
+from decorator import decorator
 
 
 def wrap_cli_test(output, save_output=False):
@@ -33,8 +30,6 @@ def wrap_cli_test(output, save_output=False):
         sys.stderr = backup_stderr
 
         output_file = output
-        if sys.version_info.major == 2:
-            output_file += "_python27"
 
         if save_output:
             with open("{}.stdout".format(output_file), "w+") as f:
@@ -45,13 +40,11 @@ def wrap_cli_test(output, save_output=False):
         with open("{}.stdout".format(output_file), "r") as f:
             screen_output = stdout.getvalue()
             reference_output = f.read()
-            if screen_output != reference_output:
-                raise Exception(screen_output, reference_output)
+            assert screen_output == reference_output
 
         with open("{}.stderr".format(output_file), "r") as f:
             screen_output = stderr.getvalue()
             reference_output = f.read()
-            if screen_output != reference_output:
-                raise Exception(screen_output, reference_output)
+            assert screen_output == reference_output
 
     return run_test

@@ -23,7 +23,9 @@ How the documentation is structured
 
 - The :doc:`Tutorial </tutorials/intro/index>` is a great place to start for new users.
 - :doc:`How-to guides </howto/index>` aim to solve a specific use case or answer key problems. These guides can be more advanced than the tutorial and can assume some knowledge about how Nornir and related technologies work.
-- :doc:`Reference guides </ref/index>` contains the API reference for Nornir and describe the core functions and plugins.
+- :doc:`Reference guides </ref/index>` contains the API reference for Nornir and describe the core functions.
+- :doc:`Configuration </configuration/index>` describe the configuration parameters of Nornir and their default settings.
+- :doc:`Plugins </plugins/index>` shows which tasks and functions are available out of the box with Nornir and describe how they work.
 
 Is something missing from the documentation? Please open an issue and `tell us what you are missing <https://github.com/nornir-automation/nornir/issues>`_ or `open a pull request <https://github.com/nornir-automation/nornir/pulls>`_ and suggest an improvement.
 
@@ -32,12 +34,12 @@ A first glance
 
 Here is an example on how to quickly build a runbook leveraging Nornir to retrieve information from the network::
 
-    from nornir.core import InitNornir
+    from nornir import InitNornir
     from nornir.plugins.functions.text import print_result
     from nornir.plugins.tasks.networking import napalm_get
 
     nr = InitNornir(
-        config_file="nornir.yaml", dry_run=True, num_workers=20
+        config_file="nornir.yaml", dry_run=True
     )
 
     results = nr.run(
@@ -59,6 +61,7 @@ Contents
    configuration/index
    plugins/index
    ref/index
+   upgrading/index
    Contribute <contributing/index>
 
 
